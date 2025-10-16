@@ -1,21 +1,21 @@
-public class libroimpreso extends Libro {
+public class LibroDigital extends Libro {
     private static int serie = 1;
-    private double peso;
+    private double tam;
 
-    public libroimpreso(String t, String a, double p, int s, double peso) {
-        super(t, a, p, s, "LF" + serie++);
-        this.peso = peso;
+    public LibroDigital(String t, String a, double p, int s, double tam) {
+        super(t, a, p, s, "LD" + serie++);
+        this.tam = tam;
     }
 
     public double mostrarLibro() {
-        System.out.println("Libro Físico");
+        System.out.println("Libro Digital");
         super.mostrarLibro();
-        System.out.println("Peso: " + peso + " kg");
+        System.out.println("Tamaño: " + tam + " MB");
         return 0;
     }
 
     public void prestar(int n) {
-        if (n > 0 && n <= stock) {
+        if (n > 0 && stock >= n) {
             stock -= n;
             System.out.println("Prestados " + n);
         } else System.out.println("No disponible");
